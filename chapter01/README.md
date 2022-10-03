@@ -1,1 +1,1 @@
-# Chapter 1 examples
+# Chapter 1 - Karate’s core concepts
