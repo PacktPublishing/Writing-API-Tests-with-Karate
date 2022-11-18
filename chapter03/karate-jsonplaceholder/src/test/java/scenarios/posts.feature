@@ -11,21 +11,20 @@ Scenario: Checking the number of posts
     And match response == '#[10]'
     And match response == '#[]? _.userId == 1'
     And match response == '#[10] #object? _.userId == 1'
-
-    # And match response[0] == { id: '#string', userId: '#number', title: '#string', body: '#string' }
-    # And match response[0] contains { userId: 1 }
-    # * match response[0] == { id: '#present', userId: '#present', title: '#present', body: '#present' }
-    # * match response[0] == { thisShouldNotBeThere: '#notpresent', id: '#present', userId: '#present', title: '#present', body: '#present' }
-    # * print "Length", response.length
+    And match response[0] == { id: '#string', userId: '#number', title: '#string', body: '#string' }
+    And match response[0] contains { userId: 1 }
+    * match response[0] == { id: '#present', userId: '#present', title: '#present', body: '#present' }
+    * match response[0] == { thisShouldNotBeThere: '#notpresent', id: '#present', userId: '#present', title: '#present', body: '#present' }
+    * print "Length", response.length
     # using assert
-    # And assert response.length > 1
+    And assert response.length > 1
     # using match, first way
-    # And match response != 1
+    And match response != 1
     # using match, second way
-    # And match $ == '##[_ > 1]'
-    # And match response[0].userId == 1
-    # * def ids = $..userId
-    # * print ids
+    And match $ == '##[_ > 1]'
+    And match response[0].userId == 1
+    * def ids = $..userId
+    * print ids
     
 Scenario: Creating a new post
     Given url 'https://jsonplaceholder.typicode.com'
