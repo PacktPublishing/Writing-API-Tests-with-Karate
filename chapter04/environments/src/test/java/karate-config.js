@@ -1,7 +1,6 @@
 function fn() {
   var env = karate.env;
   karate.log('karate.env system property is:', env);
-  karate.log('userName property is:', userName);
 
   if (!env) {
     env = 'dev';
@@ -9,7 +8,6 @@ function fn() {
 
   var config = {
     env: env,
-    userName: karate.properties["userName"]
   }
 
   if (env == 'dev') {
