@@ -24,7 +24,7 @@ public class RunnerDifferentMethods {
     @Karate.Test    
     Karate testSmokeTag() {
         // Runs all scenarios tagged with @smoke
-        Karate k = Karate.run().relativeTo(getClass()).tags("smoke");
+        Karate.run().relativeTo(getClass()).tags("smoke");
         return Karate.run().relativeTo(getClass()).tags("smoke");
     }
 }
