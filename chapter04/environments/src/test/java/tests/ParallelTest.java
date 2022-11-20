@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class ParallelTest {
     @Test
     void testProd() {
-        Results results = Runner.path("classpath:env-demo").karateEnv("prod").parallel(4);
+        Results results = Runner.path("classpath:env-demo").karateEnv("prod").parallel(1);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 }
