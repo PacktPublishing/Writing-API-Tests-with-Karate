@@ -2,7 +2,7 @@ package tests;
 
 import com.intuit.karate.junit5.Karate;
 
-public class RunnerDifferentMethods {
+public class Runner {
     @Karate.Test
     Karate test1() {
         // Runs all scenarios in test1.feature
@@ -24,7 +24,6 @@ public class RunnerDifferentMethods {
     @Karate.Test    
     Karate testSmokeTag() {
         // Runs all scenarios tagged with @smoke
-        Karate.run().relativeTo(getClass()).tags("smoke");
         return Karate.run().relativeTo(getClass()).tags("smoke");
     }
 }

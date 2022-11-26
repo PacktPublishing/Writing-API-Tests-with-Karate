@@ -14,6 +14,13 @@ public class ParallelTest {
     }
 
     @Test
+    void testFeature1() {
+        Results results = Runner.path("classpath:tests/Test1.feature").parallel(4);
+        assertEquals(0, results.getFailCount(), results.getErrorMessages());
+    }
+
+
+    @Test
     void testSmoke() {
         Results results = Runner.path("classpath:tests").tags("@smoke").parallel(4);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());

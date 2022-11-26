@@ -1,10 +1,8 @@
 Feature: Feature 1
-  Background
-    * print "Base URL", baseUrl
-    * print "Hello", name
-
+  @smoke @important
   Scenario: Feature 1 Scenario 1
     * print "Feature 1 Scenario 1"
 
+  @ignore
   Scenario: Feature 1 Scenario 2
     * print "Feature 1 Scenario 2"
