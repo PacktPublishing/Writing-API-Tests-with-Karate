@@ -10,8 +10,7 @@ class Run {
     @Test
     void testParallel() {
         Results results = Runner.path("classpath:reporting")
-            .outputCucumberJson(true)
-            .dryRun(false).parallel(2);
+            .dryRun(false).outputJunitXml(true).parallel(2);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 
