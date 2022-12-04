@@ -21,7 +21,12 @@
             <artifactId>karate-junit5</artifactId>
             <version>${karate.version}</version>
             <scope>test</scope>
-        </dependency>		
+        </dependency>
+        <dependency>
+            <groupId>com.trivago.rta</groupId>
+            <artifactId>cluecumber-core</artifactId>
+            <version>3.0.0</version>
+        </dependency>        
     </dependencies>
 
     <build>
@@ -51,15 +56,6 @@
                 <version>${maven.surefire.version}</version>
                 <configuration>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.trivago.rta</groupId>
-                <artifactId>cluecumber-report-plugin</artifactId>
-                <version>2.9.4</version>
-                <configuration>
-                    <sourceJsonReportDirectory>target/myReport</sourceJsonReportDirectory>
-                    <generatedHtmlReportDirectory>target/customReport</generatedHtmlReportDirectory>
                 </configuration>
             </plugin>
         </plugins>

@@ -55,8 +55,8 @@
             </plugin>
             <plugin>
                 <groupId>com.trivago.rta</groupId>
-                <artifactId>cluecumber-report-plugin</artifactId>
-                <version>2.9.4</version>
+                <artifactId>cluecumber-maven</artifactId>
+                <version>3.0.0</version>
                 <configuration>
                     <sourceJsonReportDirectory>target/myReport</sourceJsonReportDirectory>
                     <generatedHtmlReportDirectory>target/customReport</generatedHtmlReportDirectory>
