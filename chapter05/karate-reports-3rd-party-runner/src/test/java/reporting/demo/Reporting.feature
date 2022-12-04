@@ -5,8 +5,6 @@ Feature: Reporting demo
     Given url 'https://jsonplaceholder.typicode.com'
     And path 'users'
     When method get
-    * configure printEnabled = false
-    * print "print"
     Then status 200
 
   @passing

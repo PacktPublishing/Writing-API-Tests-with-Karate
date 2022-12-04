@@ -10,7 +10,10 @@ class Run {
     @Test
     void testParallel() {
         Results results = Runner.path("classpath:reporting")
-//            .backupReportDir(false)
+            .outputCucumberJson(true)
+            .outputJunitXml(false)
+            .reportDir("target/myReport")
+            .outputHtmlReport(false)         
             .parallel(2);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }

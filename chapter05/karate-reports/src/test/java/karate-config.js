@@ -1,5 +1,7 @@
-function fn() {
-  var config = {
-  }
+function fn() {  
+  karate.config("printEnabled", false);
+
+  var config = {    
+  }    
   return config;
 }
