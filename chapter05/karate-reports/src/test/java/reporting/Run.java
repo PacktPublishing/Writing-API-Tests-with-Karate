@@ -10,7 +10,7 @@ class Run {
     @Test
     void testParallel() {
         Results results = Runner.path("classpath:reporting")
-//            .backupReportDir(false)
+            .backupReportDir(false)
             .parallel(2);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
