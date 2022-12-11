@@ -11,6 +11,7 @@ class Run {
     void testParallel() {
         Results results = Runner.path("classpath:reporting")
             .backupReportDir(false)
+            .outputJunitXml(true)
             .parallel(2);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
