@@ -1,6 +1,6 @@
-Feature: Advanved concepts
+Feature: Advanced concepts
 
-  Scenario: Create user from file
+  Scenario: Create user <user> from file
     * def user = read("newUser.json")
     Given url 'https://jsonplaceholder.typicode.com/users'
     And request user
