@@ -24,7 +24,14 @@ Feature: Reading from files
     * def text = read("../text-example.txt")
     * assert text == "Karate had its first release in 2017."
 
-  Scenario: Read Javascript
+  Scenario: Read JavaScript
     * def jsFunctionFromFile = read("../js-example.js")
-    * def text = jsFunctionFromFile("Karate", 2017)
+    * def text = jsFunctionFromFile('Karate', 2017)
     * assert text == "Karate had its first release in 2017."
+
+  Scenario: Read JavaScript multiple methods
+    * def f = read("../js-example2.js")
+    * def text = f().getRelease('Karate', 2017)
+    * print text
+    * def number = f().secondMethod()
+    * print number

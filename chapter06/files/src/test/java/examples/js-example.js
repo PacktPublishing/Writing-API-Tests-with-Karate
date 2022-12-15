@@ -1,3 +1,3 @@
-function sayHello(name, year) {
+function getRelease(name, year) {
     return name + " had its first release in " + year + ".";
 }
