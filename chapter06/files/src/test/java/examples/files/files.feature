@@ -20,6 +20,25 @@ Feature: Reading from files
     * assert yaml.framework.inception == 2017
     * match yaml == {'framework': {'name': 'Karate', 'inception': 2017}}
 
+  Scenario: Convert YAML to JSON
+    * text yaml =
+      """
+      publisher: Packt
+      book:
+        title: API testing with the Karate framework 
+      """
+    * yaml converted = yaml
+    * print converted
+
+  Scenario: Convert CSV to JSON
+    * text csv =
+      """
+      publisher,book
+      Packt,API testing with the Karate framework
+      """
+    * csv converted = csv
+    * print converted
+
   Scenario: Read text
     * def text = read("../text-example.txt")
     * assert text == "Karate had its first release in 2017."
@@ -35,3 +54,8 @@ Feature: Reading from files
     * print text
     * def number = f().secondMethod()
     * print number
+
+  Scenario: Methods from karate-config.js
+    * def f1 = function1()
+    * print f1
+    * print function2()
