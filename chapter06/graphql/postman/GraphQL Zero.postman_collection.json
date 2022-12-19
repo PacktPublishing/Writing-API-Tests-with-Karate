@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "1964b297-0ba8-47be-8932-b1045128cc50",
+		"name": "GraphQL Zero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get post with ID 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  post(id: 1) {\r\n    id\r\n    title\r\n    body\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://graphqlzero.almansi.me/api",
+					"protocol": "https",
+					"host": [
+						"graphqlzero",
+						"almansi",
+						"me"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all post titles from user 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    user(id: 1) {\r\n        name,\r\n        posts {\r\n            data {\r\n                title\r\n            }\r\n        }\r\n    }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://graphqlzero.almansi.me/api",
+					"protocol": "https",
+					"host": [
+						"graphqlzero",
+						"almansi",
+						"me"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
