@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "2cec9048-f871-48ca-ab47-6aff4140493f",
+		"name": "instantwebtools",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get auth token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "acc",
+						"value": "",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "scope",
+							"value": "offline_access",
+							"type": "default"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "default"
+						},
+						{
+							"key": "username",
+							"value": "api-user4@iwt.net",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "b3z0nV0cLO",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "0oahdhjkutaGcIK2M4x6",
+							"type": "default"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev-457931.okta.com/oauth2/aushd4c95QtFHsfWt4x6/v1/token",
+					"protocol": "https",
+					"host": [
+						"dev-457931",
+						"okta",
+						"com"
+					],
+					"path": [
+						"oauth2",
+						"aushd4c95QtFHsfWt4x6",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Airline details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiI5aXQ2Nmg0dml6UVJCcHVjTy1veXh0Y280SHhqbTZhQjdHQkhOa05jaGNZIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULmxnRWhqOUNPWkJ6ZEZaem1NMFNXdUZ1aFdIYmdua1g4alFyNVMtYUJmR1Uub2FyMTJnZGNudGJVd25SSXA0eDciLCJpc3MiOiJodHRwczovL2Rldi00NTc5MzEub2t0YS5jb20vb2F1dGgyL2F1c2hkNGM5NVF0RkhzZld0NHg2IiwiYXVkIjoiYXBpIiwiaWF0IjoxNjcxNjI2ODY1LCJleHAiOjE2NzE2MzA0NjUsImNpZCI6IjBvYWhkaGprdXRhR2NJSzJNNHg2IiwidWlkIjoiMDB1aGVuaDFwVkRNZzJ1ZXg0eDYiLCJzY3AiOlsib2ZmbGluZV9hY2Nlc3MiXSwiYXV0aF90aW1lIjoxNjcxNjI2ODY1LCJzdWIiOiJhcGktdXNlcjRAaXd0Lm5ldCJ9.QharmWSRii0TJGU4fRb1nBg8oT9TyVfuk2ZAMlzRct_ixIn0E1fmttuHc8W5WWEfJzLrhlnUrOe433JAr5sd6e0hRjgHpwin-If2GfNaP9OcaazU4K1GWQaialBSXjVV0ibEeArh3d80MnT4H74vliq4H7TJEb3bHkK_7uGSQjM7gnBP5BcrwIpyny2uGwI00iYIIOqWQWenHOX8_d2bBxRypG5LUm_Yf5wH_g2klKiKaRjrS94bH6QaLIwCdZCww3QGiqNanad14FEqwcsgyVeI6GoKp8JxcYTMRiEW9L_DH1N3VItfmsJ1iXMBamaUR-QE_6Bw4oBj_VlRc3Lufg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.instantwebtools.net/v2/airlines",
+					"protocol": "https",
+					"host": [
+						"api",
+						"instantwebtools",
+						"net"
+					],
+					"path": [
+						"v2",
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

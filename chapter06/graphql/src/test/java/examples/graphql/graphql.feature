@@ -1,6 +1,6 @@
 Feature: Test GraphQL API using Karate
 
-  Scenario: Query for user information
+  Scenario: Query for user posts
     * url "https://graphqlzero.almansi.me/api"
     * text userPosts =
     """
@@ -17,4 +17,8 @@ Feature: Test GraphQL API using Karate
     """
     And request { query: '#(userPosts)'}
     When method post
-    * print response.data
+    * print response.data.user.name
+    * def titles = []
+    * def getTitle = function(postData) { karate.appendTo(titles, postData.title) }
+    * karate.forEach(response.data.user.posts.data, getTitle)
+    * print titles
