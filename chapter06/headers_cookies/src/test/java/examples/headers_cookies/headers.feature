@@ -14,3 +14,5 @@ Feature: Using headers
     When method get
     Then status 200
     * match response.name == "Quatar Airways"
+    * match responseHeaders['Content-Length'][0] == '' + responseBytes.length
+    * match parseInt(responseHeaders['Content-Length'][0]) == responseBytes.length
