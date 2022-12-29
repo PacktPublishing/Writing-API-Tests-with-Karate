@@ -3,7 +3,6 @@ Feature: Retrying requests
         Given url 'https://jsonplaceholder.typicode.com/todos/1'
         And retry until responseStatus == 200
         When method get
-        * print responseStatus
         
     Scenario: Retry based on custom condition
         Given url 'https://jsonplaceholder.typicode.com/todos/1'
