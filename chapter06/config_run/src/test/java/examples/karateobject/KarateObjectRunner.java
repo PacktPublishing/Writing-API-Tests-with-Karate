@@ -6,7 +6,7 @@ class KarateObjectRunner {
     
     @Karate.Test
     Karate testKarateObject() {
-        return Karate.run("karate-object").relativeTo(getClass());
+        return Karate.run("karateobject").relativeTo(getClass());
     }    
 
 }
