@@ -1,4 +1,4 @@
-package examples.java;
+package examples.mockserver;
 
 import com.intuit.karate.junit5.Karate;
 
