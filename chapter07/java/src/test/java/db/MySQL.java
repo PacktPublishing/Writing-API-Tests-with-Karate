@@ -18,7 +18,7 @@ public class MySQL {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             connect = DriverManager.getConnection(
-                "jdbc:mysql://sql7.freesqldatabase.com/sql7587919?user=sql7587919&password=xxxxx";
+                "jdbc:mysql://sql7.freesqldatabase.com/sql7587919?user=sql7587919&password=xxxxx");
             statement = connect.createStatement();
             resultSet = statement.executeQuery("select * from magicians");
 
