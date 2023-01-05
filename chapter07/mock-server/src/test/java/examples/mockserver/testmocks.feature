@@ -4,13 +4,17 @@ Feature: Testing a mock server
         * def port = callonce start
         * url 'http://localhost:' + port
 
-    Scenario: Test mock server
+    Scenario: Get all magicians
         When path 'magicians'
         And method get
-        * print response
+        Then match responseStatus == 200
 
-    Scenario: Test mock server
-        When path 'magician'
-        And param id = 2
+    Scenario: Get one magician
+        When path 'magician/2'
         And method get
-        * print response
+        * match response.name == 'Teller'
+
+    Scenario: Unavailable id
+        When path 'magician/123'
+        And method get
+        Then match responseStatus == 204

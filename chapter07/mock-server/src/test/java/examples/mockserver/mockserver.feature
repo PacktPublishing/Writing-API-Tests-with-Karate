@@ -4,30 +4,22 @@ Feature: Feature
     * def magicians = 
     """
       [
-        {
-          name: "Penn",
-          id: 1
-        },
-        {
-          name: "Teller",
-          id: 2
-        }
+        { id: 1, name: "Penn" },
+        { id: 2, name: "Teller" }
       ]
     """
     * json magicians = magicians
 
   Scenario: pathMatches('/magicians') && methodIs('get')
-     * print "Get request to magicians"
-     * def response = { content: #(magicians) }
+     * def response = magicians
 
-  Scenario: pathMatches('magician/{index}')
-    * def index = parseInt(pathParams.index)
-    * print 'Get magician with index', index
-    * def result = magicians[index]
-    * print result
+  Scenario: pathMatches('magician/{id}') && methodIs('get')
+    * def index = parseInt(pathParams.id) - 1
+    * def isValid = index > -1 && index < magicians.length 
     * def responseDelay = 3000
-    * def response = { content: #(result) }
+    * def response = isValid ? magicians[index] : ''
+    * def responseStatus = isValid ? 200 : 204
 
   Scenario:
     * print 'Not supported', karate.prevRequest
-    * def responseStatus = 404
+    * def responseStatus = 500
