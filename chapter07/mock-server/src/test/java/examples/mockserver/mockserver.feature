@@ -4,17 +4,20 @@ Feature: Feature
      * print "Get request to magicians"
      * def response = { content: 'Magicians' }
 
-  Scenario: pathMatches('magician') && paramExists('id')
-    * def id = paramValue('id')
-    * print "Get magician with id ", id
-    * def responseDelay = 3000
-    * def response = { id: #id, content: 'Magician' }
+  Scenario: pathMatches('magician/{id}')
+    * def id = pathParams.id
+    * print 'Get magician with id', id
+    * def responseDelay = 2000
+    * def content =
+    """
+      {
+        name: "Teller",
+        birthyear: 1948,
+        id: #(id)
+      }
+    """
+    * def response = { content: #(content) }
 
   Scenario:
-    * print 'No dedicated scenario matches incoming request.'
-    * print 'With Headers:'
-    * print requestHeaders
-    * print 'With Request Parameters'
-    * print requestParams
-    * print 'And Request:'
-    * print request
+    * print 'Not supported', karate.prevRequest
+    * def responseStatus = 404

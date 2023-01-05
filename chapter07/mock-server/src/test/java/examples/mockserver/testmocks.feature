@@ -10,6 +10,7 @@ Feature: Testing a mock server
         * print response
 
     Scenario: Test mock server
-        When path 'magicians'
+        When path 'magician'
+        And param id = 2
         And method get
         * print response

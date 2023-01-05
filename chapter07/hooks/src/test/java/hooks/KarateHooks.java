@@ -18,6 +18,7 @@ public class KarateHooks implements com.intuit.karate.RuntimeHook {
         } else {
             System.out.println("Step passed: " + result.getStep().getText());
         }
+
         RuntimeHook.super.afterStep(result, sr);
     }
 
