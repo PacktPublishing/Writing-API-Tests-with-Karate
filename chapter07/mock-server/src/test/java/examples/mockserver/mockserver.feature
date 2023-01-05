@@ -7,7 +7,7 @@ Feature: Feature
   Scenario: pathMatches('magician/{id}')
     * def id = pathParams.id
     * print 'Get magician with id', id
-    * def responseDelay = 2000
+    * def responseDelay = 5000
     * def content =
     """
       {
