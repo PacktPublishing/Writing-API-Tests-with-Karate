@@ -18,3 +18,8 @@ Feature: Testing a mock server
         When path 'magician/123'
         And method get
         Then match responseStatus == 204
+
+    Scenario: Unavailable endpoint
+        When path 'rabbits'
+        And method get
+        Then match responseStatus == 500
