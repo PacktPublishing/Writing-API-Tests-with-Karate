@@ -15,4 +15,4 @@ Feature: Java
       }      
       """
     * json magicians = getMagicians()
-    * print magicians    
+    * print magicians[2].birthyear
