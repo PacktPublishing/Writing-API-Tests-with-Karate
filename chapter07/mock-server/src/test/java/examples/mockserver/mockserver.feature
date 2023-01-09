@@ -21,5 +21,4 @@ Feature: Feature
     * def responseStatus = isValid ? 200 : 204
 
   Scenario:
-    * print 'Not supported', karate.prevRequest
     * def responseStatus = 500
