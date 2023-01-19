@@ -1,4 +1,4 @@
-Feature: Feature
+Feature: Mock server
 
   Background:
     * def magicians = 
