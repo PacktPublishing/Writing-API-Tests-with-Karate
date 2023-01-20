@@ -5,8 +5,7 @@ import com.intuit.karate.junit5.Karate;
 class ConcisenessRunner {
     
     @Karate.Test
-    Karate testUsers() {
+    Karate testConciseness() {
         return Karate.run("conciseness").relativeTo(getClass());
-    }    
-
+    }
 }
