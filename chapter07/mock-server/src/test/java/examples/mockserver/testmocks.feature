@@ -1,6 +1,6 @@
 Feature: Testing a mock server
     Background:
-        * def start = () => karate.start('mockserver.feature').port
+        * def start = () => karate.start('mocks.feature').port
         * def port = callonce start
         * url 'http://localhost:' + port
 

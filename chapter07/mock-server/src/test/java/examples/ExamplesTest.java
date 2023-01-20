@@ -9,8 +9,8 @@ class ExamplesTest {
 
     @Test
     void testParallel() {
-        Results results = Runner.path("classpath:examples")
-                .parallel(5);
+        Results results = Runner.path("classpath:examples/mockserver/testmocks.feature")
+                .parallel(1);
         assertEquals(0, results.getFailCount(), results.getErrorMessages());
     }
 

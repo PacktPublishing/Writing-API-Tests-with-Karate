@@ -11,7 +11,7 @@ Scenario: Checking the number of posts
     And match response == '#[10]'
     And match response == '#[]? _.userId == 1'
     And match response == '#[10] #object? _.userId == 1'
-    And match response[0] == { id: '#string', userId: '#number', title: '#string', body: '#string' }
+    And match response[0] == { id: '#number', userId: '#number', title: '#string', body: '#string' }
     And match response[0] contains { userId: 1 }
     * match response[0] == { id: '#present', userId: '#present', title: '#present', body: '#present' }
     * match response[0] == { thisShouldNotBeThere: '#notpresent', id: '#present', userId: '#present', title: '#present', body: '#present' }
@@ -29,11 +29,11 @@ Scenario: Checking the number of posts
 Scenario: Creating a new post
     Given url 'https://jsonplaceholder.typicode.com'
     And path 'posts'
-    And request { userId: 10, title: 'Hello', text: 'World' }
+    And request { userId: 10, title: 'Hello', body: 'World' }
     When method post
     Then status 201
     And match responseType == 'json'
-    And match response == { id: #number, userId: 10, title: 'Hello', text: 'World' }
+    And match response == { id: #number, userId: 10, title: 'Hello', body: 'World' }
 
 Scenario: Declaring a variable
     * def myName = 'Benjamin'
@@ -42,7 +42,7 @@ Scenario: Declaring a variable
 Scenario: Creating a new post with variable
     Given url 'https://jsonplaceholder.typicode.com'
     And path 'posts'
-    * def payload = { userId: 10, title: 'Hello', text: 'World' }
+    * def payload = { userId: 10, title: 'Hello', body: 'World' }
     And request payload
     When method post
     Then status 201
@@ -62,7 +62,7 @@ Scenario: Creating a new post with a data table
 Given url 'https://jsonplaceholder.typicode.com'
     And path 'posts'
     * table payload
-      |userId|title  |text   |
+      |userId|title  |body   |
       |10    |'Hello'|'World'|
     * def payload = payload[0]
     And request payload
@@ -79,7 +79,7 @@ Scenario: Creating a new post with a set
       |path  |       |
       |userId| 10    |
       |title |'Hello'|
-      |text  |'World'|
+      |body  |'World'|
     * print payload
     And request payload
     When method post
