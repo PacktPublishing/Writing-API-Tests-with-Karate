@@ -1,4 +1,11 @@
 Feature: Data-driven testing
+    Scenario Outline: Normal outline
+        * print '<name>'
+        Examples:
+            | name   |
+            | Eamon  |
+            | Ginny  |
+
     Scenario: Feature in variable
     * table animals
       | animal | name    |

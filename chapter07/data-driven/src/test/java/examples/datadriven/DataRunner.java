@@ -1,4 +1,4 @@
-package examples.data;
+package examples.datadriven;
 
 import com.intuit.karate.junit5.Karate;
 
