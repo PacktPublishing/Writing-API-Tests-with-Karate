@@ -6,6 +6,19 @@ Feature: Data-driven testing
             | Eamon  |
             | Ginny  |
 
+    Scenario Outline: Data from file
+        * print name, 'is', color
+        Examples:
+            | read('animals.json') |
+    
+    Scenario Outline: JSON in data table
+        * def color = traits.color
+        * print '<name> is', color
+        Examples:
+            | name   | traits!          |
+            | Eamon  | {color: 'red'}   |
+            | Ginny  | {color: 'black'} |
+    
     Scenario: Feature in variable
     * table animals
       | animal | name    |
@@ -15,19 +28,6 @@ Feature: Data-driven testing
     * print animalsWithTitles
     * def onlyTitles = $animalsWithTitles[*].title
     * print onlyTitles
-
-    Scenario Outline: JSON in data table
-        * def color = traits.color
-        * print '<name> is', color
-        Examples:
-            | name   | traits!          |
-            | Eamon  | {color: 'red'}   |
-            | Ginny  | {color: 'black'} |
-
-    Scenario Outline: Data from file
-        * print name, 'is', color
-        Examples:
-            | read('animals.json') |
 
     @setup
     Scenario:
