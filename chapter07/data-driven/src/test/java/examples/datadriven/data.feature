@@ -20,14 +20,14 @@ Feature: Data-driven testing
             | Ginny  | {color: 'black'} |
     
     Scenario: Feature in variable
-    * table animals
-      | animal | name    |
-      | 'cat'  | 'Ginny' |
-      | 'dog'  | 'Eamon' |
-    * def animalsWithTitles = call read('animal-title.feature') animals
-    * print animalsWithTitles
-    * def onlyTitles = $animalsWithTitles[*].title
-    * print onlyTitles
+        * table animals
+        | animal | name    |
+        | 'cat'  | 'Ginny' |
+        | 'dog'  | 'Eamon' |
+        * def animalsWithTitles = call read('animal-title.feature') animals
+        * print animalsWithTitles
+        * def onlyTitles = $animalsWithTitles[*].title
+        * print onlyTitles
 
     @setup
     Scenario:
