@@ -29,6 +29,9 @@ Feature: Data-driven testing
         * def onlyTitles = $animalsWithTitles[*].title
         * print onlyTitles
 
+    Scenario: Read from karate-config.js
+        * print bird.title
+
     @setup
     Scenario:
         * def animals = read('animals.json')
