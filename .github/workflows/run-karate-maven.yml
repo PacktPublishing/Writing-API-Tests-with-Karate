@@ -1,4 +1,4 @@
-name: Run Karate tests
+name: Run Karate tests (Maven)
 
 on:
   push:
@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
@@ -20,4 +18,5 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
+      working-directory: chapter08/cicd
       run: mvn -B package --file pom.xml
