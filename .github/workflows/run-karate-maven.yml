@@ -20,4 +20,8 @@ jobs:
         cache: maven
     - name: Karate tests
       working-directory: chapter08/cicd
+      env:
+        HOST: ${{ secrets.HOST }}
+        DB: ${{ secrets.DB }}
+        PASS: ${{ secrets.PASS }}
       run: ./run-tests.sh
