@@ -1,6 +1,7 @@
 name: Run Karate tests (Maven)
 
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
@@ -19,4 +20,4 @@ jobs:
         cache: maven
     - name: Build with Maven
       working-directory: chapter08/cicd
-      run: mvn -B package --file pom.xml
+      run: mvn clean
