@@ -18,6 +18,6 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
+    - name: Karate tests
       working-directory: chapter08/cicd
-      run: mvn clean
+      run: run-tests.sh
