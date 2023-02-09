@@ -20,4 +20,4 @@ jobs:
         cache: maven
     - name: Karate tests
       working-directory: chapter08/cicd
-      run: run-tests.sh
+      run: ./run-tests.sh
