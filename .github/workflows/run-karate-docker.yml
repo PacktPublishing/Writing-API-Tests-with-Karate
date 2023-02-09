@@ -1,6 +1,7 @@
 name: Run Karate tests (Docker)
 
 on:
+  workflow_dispatch:    
   push:
     branches: [ "main" ]
   pull_request:
@@ -8,10 +9,10 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest 
     steps:
     - uses: actions/checkout@v3
     - name: Run with Docker
+      working-directory: chapter08/cicd
       run: >
         echo "HI"
