@@ -5,7 +5,7 @@ Feature: CI/CD
       """
       function() {
         var MySQL = Java.type('db.MySQL');
-        var mySQL = new MySQL();
+        var mySQL = new MySQL(host, db, pass);
         return mySQL.getMagicians();
       }      
       """

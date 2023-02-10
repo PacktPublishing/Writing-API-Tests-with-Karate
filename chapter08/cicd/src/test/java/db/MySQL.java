@@ -7,15 +7,22 @@ import java.util.ArrayList;
 import java.util.List;
 import com.intuit.karate.JsonUtils;
 
-public class MySQL {  
+public class MySQL {
+    private final String host;
+    private final String db;
+    private final String pass;
+
+    public MySQL(final String host, final String db, final String pass) {
+        this.host = host;
+        this.db = db;
+        this.pass = pass;
+    }
+
     public String getMagicians() throws Exception {
-        String connectionString =
-            "jdbc:mysql://sql7.freesqldatabase.com/sqlxxx";
-        String user = "sqlxxx";
-        String password = "xxx";
+        String connectionString = "jdbc:mysql://" + host + "/" + db;
         try (
             Connection c = DriverManager.getConnection(
-                connectionString, user, password
+                connectionString, db, pass
             );
             Statement s = c.createStatement();
             ResultSet result = 
