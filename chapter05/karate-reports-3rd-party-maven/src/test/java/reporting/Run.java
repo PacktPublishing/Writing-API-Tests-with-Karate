@@ -11,7 +11,6 @@ class Run {
     void testParallel() {
         Results results = Runner.path("classpath:reporting")
             .outputCucumberJson(true)
-            .outputJunitXml(false)
             .reportDir("target/myReport")
             .outputHtmlReport(false)         
             .parallel(2);

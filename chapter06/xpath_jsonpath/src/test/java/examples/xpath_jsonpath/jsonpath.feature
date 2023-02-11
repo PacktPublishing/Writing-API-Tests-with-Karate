@@ -30,3 +30,6 @@ Scenario: JSONPath
   * match name == 'David Copperfield'
   * def specialties = get[0] data.magicians[?(@.name == 'Harry Houdini')].specialty
   * match specialties == ['escapology', 'card tricks']
+  * def illusionistFilter = function(x){ return x.specialty.contains("illusions"); }
+  * def illusionists = karate.filter(data.magicians, illusionistFilter)
+  * print illusionists
