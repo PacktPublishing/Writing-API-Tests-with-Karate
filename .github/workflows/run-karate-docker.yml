@@ -15,4 +15,12 @@ jobs:
     - name: Run with Docker
       working-directory: chapter08/cicd
       run: >
-        echo "HI"
+        docker run \
+        -e HOST=${{ secrets.SuperSecret }} \
+         -e DB=${{ secrets.SuperSecret }} \
+         -e PASS=${{ secrets.SuperSecret }} \
+        --rm --name karate-tests --init \
+        -v"$(pwd)":/usr/src/mymaven \
+        -w /usr/src/mymaven \
+        maven:3.8.6 \
+        ./run-tests.sh
