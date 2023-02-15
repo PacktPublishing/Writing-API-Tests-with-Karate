@@ -1,6 +1,6 @@
 Feature: Custom functions
 
-  Scenario: 
+  Scenario: Miles and kilometers
     * def kmToMiles = function(km) { return km / 1.6 }
     * def milesToKm = function(miles) { return miles * 1.6 }
     * assert kmToMiles(16) == 10
