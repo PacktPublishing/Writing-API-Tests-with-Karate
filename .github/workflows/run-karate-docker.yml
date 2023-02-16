@@ -10,13 +10,13 @@ jobs:
     - uses: actions/checkout@v3
     - name: Run with Docker
       working-directory: chapter08/cicd
-      run: |
-        docker run \
-        -e HOST=${{ secrets.SuperSecret }} \
-         -e DB=${{ secrets.SuperSecret }} \
-         -e PASS=${{ secrets.SuperSecret }} \
-        --rm --name karate-tests --init \
-        -v"$(pwd)":/usr/src/mymaven \
-        -w /usr/src/mymaven \
-        maven:3.8.6 \
-        ./run-tests.sh
+      run: >
+        docker run
+          -e HOST=${{ secrets.SuperSecret }}
+          -e DB=${{ secrets.SuperSecret }}
+          -e PASS=${{ secrets.SuperSecret }}
+          --rm --name karate-tests --init
+          -v"$(pwd)":/usr/src/mymaven
+          -w /usr/src/mymaven
+          maven:3.8.6
+          ./run-tests.sh
