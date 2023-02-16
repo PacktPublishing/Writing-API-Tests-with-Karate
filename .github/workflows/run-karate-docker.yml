@@ -12,9 +12,9 @@ jobs:
       working-directory: chapter08/cicd
       run: >
         docker run \
-          -e HOST=${{ secrets.SuperSecret }} \
-          -e DB=${{ secrets.SuperSecret }} \
-          -e PASS=${{ secrets.SuperSecret }} \
+          -e HOST=${{ secrets.HOST }} \
+          -e DB=${{ secrets.DB }} \
+          -e PASS=${{ secrets.PASS }} \
           --rm --name karate-tests --init \
           -v"$(pwd)":/usr/src/mymaven \
           -w /usr/src/mymaven \
