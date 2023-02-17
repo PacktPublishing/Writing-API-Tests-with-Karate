@@ -21,3 +21,7 @@ jobs:
         DB: ${{ secrets.DB }}
         PASS: ${{ secrets.PASS }}
       run: ./run-tests.sh
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Karate Report
+        path: chapter08/cicd/target/customReport
