@@ -20,3 +20,7 @@ jobs:
           -w /usr/src/mymaven \
           maven:3.8.6 \
           ./run-tests.sh
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Karate Report
+        path: chapter08/cicd/target/customReport
