@@ -1,10 +1,17 @@
 Feature: UI test
 
   Scenario: Wait for URL
-    * configure driver = { type: 'chrome' }    
-    Given driver 'https://softwaretester.blog'    
+    * configure driver = { type: 'chrome' }
+    Given driver 'https://softwaretester.blog'        
+    # Search 
     When input('.search-input', ['Magic', Key.ENTER])
-    And waitForUrl('search/query:Magic')
+    And waitForUrl('search/query:Magic')    
+    # Create a PDF
+    * def resultAsPdf = pdf({})
+    * karate.write(resultAsPdf, "search.pdf")
+    # * highlightAll('.search-item')
+    # Screenshot of search results
+    * screenshot('.simplesearch')
 
   Scenario: Check product name
     * configure driver = { type: 'chrome' }
@@ -21,9 +28,13 @@ Feature: UI test
     * configure driver = { type: 'chrome' }
     Given driver 'https://computer-database.gatling.io/'
     * driver.maximize()
-    When input('#searchbox', 'macbook')
+    * def searchTerm = 'MacBook'
+    When input('#searchbox', searchTerm)
     And click('#searchsubmit')
-    * def resultRows = locateAll('table.computers tr')
-    * print resultRows
+    * def resultRows = locateAll('table.computers tbody tr')
     * assert karate.sizeOf(resultRows) > 0
-    * karate.stop(1234)
+    * def computers = []
+    * def getNames = function(row) { karate.appendTo(computers, row.children[0].text) }
+    * karate.forEach(resultRows, getNames)
+    * match each computers contains 'MacBook'
+    # * karate.stop(1234)
