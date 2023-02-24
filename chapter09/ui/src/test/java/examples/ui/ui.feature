@@ -1,6 +1,6 @@
 Feature: UI test
 
-  Scenario: Wait for URL
+  Scenario: First test
     * configure driver = { type: 'chrome' }
     Given driver 'https://softwaretester.blog'        
     # Search 
@@ -22,9 +22,9 @@ Feature: UI test
     And waitForEnabled('div.card a').click()
     * def productName = text('h2.name')
     * print 'Product', productName
-    * match productName == 'Apple monitor 24'
+    * match productName == 'Apple monitor 242'
 
-  Scenario: Working with lists
+  Scenario: Working with element lists
     * configure driver = { type: 'chrome' }
     Given driver 'https://computer-database.gatling.io/'
     * driver.maximize()
