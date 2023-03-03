@@ -1,17 +1,18 @@
 Feature: UI test
 
   Scenario: First test
-    * configure driver = { type: 'chrome' }
-    Given driver 'https://softwaretester.blog'        
+    * configure driver = { type: 'chrome', videoFile: 'bla.mp4' }
+    Given driver 'https://softwaretester.blog'
     # Search 
     When input('.search-input', ['Magic', Key.ENTER])
-    And waitForUrl('search/query:Magic')    
+    * screenshot()
+    And waitForUrl('search/query:Magic')
+    * highlightAll('.search-item')
+    # Screenshot of search results
+    * screenshot('.simplesearch')
     # Create a PDF
     * def resultAsPdf = pdf({})
     * karate.write(resultAsPdf, "search.pdf")
-    # * highlightAll('.search-item')
-    # Screenshot of search results
-    * screenshot('.simplesearch')
 
   Scenario: Check product name
     * configure driver = { type: 'chrome' }
@@ -37,4 +38,4 @@ Feature: UI test
     * def getNames = function(row) { karate.appendTo(computers, row.children[0].text) }
     * karate.forEach(resultRows, getNames)
     * match each computers contains 'MacBook'
-    # * karate.stop(1234)
+    * karate.stop(1234)
