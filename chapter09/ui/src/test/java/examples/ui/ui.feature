@@ -1,7 +1,7 @@
 Feature: UI test
 
   Scenario: First test
-    * configure driver = { type: 'chrome', videoFile: 'bla.mp4' }
+    * configure driver = { type: 'chrome' }
     Given driver 'https://softwaretester.blog'
     # Search 
     When input('.search-input', ['Magic', Key.ENTER])
