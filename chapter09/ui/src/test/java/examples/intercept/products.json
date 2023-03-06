@@ -4,17 +4,9 @@
         "cat": "phone",
         "desc": "This is a test product",
         "id": 1,
-        "img": "imgs/galaxy_s6.jpg",
+        "img": "https://picsum.photos/200",
         "price": 123,
         "title": "Test1"
-      },
-      {
-        "cat": "phone",
-        "desc": "This is another test",
-        "id": 2,
-        "img": "imgs/Lumia_1520.jpg",
-        "price": 456,
-        "title": "Test2"
       }
     ],
     "LastEvaluatedKey": {"id": "1"}

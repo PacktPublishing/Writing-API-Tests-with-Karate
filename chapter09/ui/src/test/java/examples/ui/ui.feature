@@ -3,16 +3,8 @@ Feature: UI test
   Scenario: First test
     * configure driver = { type: 'chrome' }
     Given driver 'https://softwaretester.blog'
-    # Search 
     When input('.search-input', ['Magic', Key.ENTER])
-    * screenshot()
     And waitForUrl('search/query:Magic')
-    * highlightAll('.search-item')
-    # Screenshot of search results
-    * screenshot('.simplesearch')
-    # Create a PDF
-    * def resultAsPdf = pdf({})
-    * karate.write(resultAsPdf, "search.pdf")
 
   Scenario: Check product name
     * configure driver = { type: 'chrome' }
