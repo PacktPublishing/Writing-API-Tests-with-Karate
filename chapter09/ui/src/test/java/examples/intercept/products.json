@@ -1,13 +1,13 @@
 {
-    "Items": [
-      {
-        "cat": "phone",
-        "desc": "This is a test product",
-        "id": 1,
-        "img": "https://picsum.photos/200",
-        "price": 123,
-        "title": "Test1"
-      }
-    ],
-    "LastEvaluatedKey": {"id": "1"}
-  }
+  "Items": [
+    {
+      "cat": "phone",
+      "desc": "This is a test product",
+      "id": 1,
+      "img": "https://dummyimage.com/200x200?text=Karate",
+      "price": 123,
+      "title": "Test1"
+    }
+  ],
+  "LastEvaluatedKey": {"id": "9"}
+}
