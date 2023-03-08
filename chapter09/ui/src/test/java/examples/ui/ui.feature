@@ -12,10 +12,8 @@ Feature: UI test
     And driver.dimensions = {x: 0, y: 0, width: 1024, height: 768 }
     And waitForEnabled('{a}Monitors').click()
     * waitForUrl('/#')
-    And waitForEnabled('div.card a').click()
-    * def productName = text('h2.name')
-    * print 'Product', productName
-    * match productName == 'Apple monitor 242'
+    * def productName = text('.card-title')
+    * match productName == 'Apple monitor 24'
 
   Scenario: Working with element lists
     * configure driver = { type: 'chrome' }
