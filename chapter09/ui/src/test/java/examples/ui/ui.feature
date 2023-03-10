@@ -27,5 +27,4 @@ Feature: UI test
     * def computers = []
     * def getNames = function(row) { karate.appendTo(computers, row.children[0].text) }
     * karate.forEach(resultRows, getNames)
-    * match each computers contains 'MacBook'
-    * karate.stop(1234)
+    * match each computers contains searchTerm
