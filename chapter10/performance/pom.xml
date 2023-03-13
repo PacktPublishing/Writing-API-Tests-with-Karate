@@ -112,6 +112,9 @@
                 <goals>
                   <goal>test</goal>
                 </goals>
+                <configuration>
+                  <disableCompiler>true</disableCompiler> 
+                </configuration>
               </execution>
             </executions>
           </plugin>
