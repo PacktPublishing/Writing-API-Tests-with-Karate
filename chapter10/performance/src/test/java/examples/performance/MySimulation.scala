@@ -6,9 +6,7 @@ import scala.concurrent.duration._
 
 class MySimulation extends Simulation {
 
-  val protocol = karateProtocol(
-  //  "/posts/{id}" -> pauseFor("get" -> 1000, "post" -> 25)
-  )
+  val protocol = karateProtocol()
 
   protocol.nameResolver = (req, ctx) => req.getHeader("karate-name")
   protocol.runner.karateEnv("perf")
