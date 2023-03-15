@@ -7,14 +7,17 @@ import scala.concurrent.duration._
 class MySimulation extends Simulation {
 
   val protocol = karateProtocol()
-
   protocol.nameResolver = (req, ctx) => req.getHeader("karate-name")
   protocol.runner.karateEnv("perf")
 
-  val myScenario = scenario("My great Scenario").exec(karateFeature("classpath:examples/performance/performance.feature"))
+  val myScenario = scenario("My great Scenario")
+    .exec(karateFeature(
+      "classpath:examples/performance/performance.feature")
+    )
 
   setUp(
-    myScenario.inject(rampUsers(1000) during (10 seconds)).protocols(protocol)
+    myScenario.inject(
+      rampUsers(10) during (10 seconds))
+        .protocols(protocol)
   )
-
 }
