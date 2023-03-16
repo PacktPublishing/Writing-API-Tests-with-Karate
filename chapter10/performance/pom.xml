@@ -14,8 +14,6 @@
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
         <karate.version>1.2.0</karate.version>
-
-        <gatling-maven-plugin.version>4.3.0</gatling-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -28,6 +26,14 @@
     </dependencies>
 
     <build>
+        <testResources>
+            <testResource>
+                <directory>src/test/java</directory>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -51,14 +57,6 @@
             </activation>
 
             <build>
-                <testResources>
-                    <testResource>
-                        <directory>src/test/java</directory>
-                        <excludes>
-                            <exclude>**/*.java</exclude>
-                        </excludes>
-                    </testResource>
-                </testResources>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -74,11 +72,6 @@
 
         <profile>
             <id>performance</id>
-            <activation>
-                <property>
-                    <name>performanceTest</name>
-                </property>
-            </activation>
 
             <dependencies>
                 <dependency>
@@ -90,15 +83,6 @@
             </dependencies>
 
             <build>
-                <testResources>
-                    <testResource>
-                        <directory>src/test/java</directory>
-                        <excludes>
-                            <exclude>**/*.java</exclude>
-                        </excludes>
-                    </testResource>
-                </testResources>
-
                 <plugins>
                     <plugin>
                         <groupId>net.alchim31.maven</groupId>
@@ -124,16 +108,13 @@
                     <plugin>
                         <groupId>io.gatling</groupId>
                         <artifactId>gatling-maven-plugin</artifactId>
-                        <version>${gatling-maven-plugin.version}</version>
+                        <version>4.3.0</version>
                         <executions>
                             <execution>
                                 <phase>test</phase>
                                 <goals>
                                     <goal>test</goal>
                                 </goals>
-                                <configuration>
-                                    <disableCompiler>true</disableCompiler>
-                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
