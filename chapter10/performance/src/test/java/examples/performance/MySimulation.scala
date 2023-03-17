@@ -16,8 +16,7 @@ class MySimulation extends Simulation {
     )
 
   setUp(
-    myScenario.inject(
-      rampUsers(10) during (10 seconds))
-        .protocols(protocol)
+    myScenario.inject(rampUsers(1000).during(10))
+      .protocols(protocol)
   )
 }

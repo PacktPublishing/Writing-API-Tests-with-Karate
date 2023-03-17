@@ -94,9 +94,6 @@
                                     <goal>testCompile</goal>
                                 </goals>
                                 <configuration>
-                                    <args>
-                                        <arg>-language:postfixOps</arg>
-                                    </args>
                                     <excludes>
                                         <exclude>java</exclude>
                                         <exclude>**/*.java</exclude>
